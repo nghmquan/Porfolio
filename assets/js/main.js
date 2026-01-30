@@ -46,8 +46,40 @@ const scrollHeader = () =>{
 window.addEventListener('scroll', shadowHeader)
 
 /* Contact Email Js */
+const contactForm = document.getElementById('contact-form'),
+      contactMessage = document.getElementById('contact-message')
 
+const sendEmail = (e) =>{
+   e.preventDefault()
+   /*
+    The code for sending email is a sample test.
+    
+    Create your account at https://www.emailjs.com/
+    and follow the instructions in the video and images
+    to send emails with your account.
+    */
 
+    //serviceID - templateID - #form - publicKey
+   emailjs.sendForm('service_12012001', 'template_oz7fyfc', '#contact-form', 'nXakz7EWiRNZWw62v')
+   .then(() =>{
+      // Show sent message
+      contactMessage.textContent = 'Tin nhắn đã gửi thành công✅'
+
+      // Remove message after five seconds
+      setTimeout(() =>{
+         contactMessage.textContent = ''
+      }, 5000)
+
+      // Clear input fields
+      contactForm.reset()
+   },()=>{
+      // Show error message
+      contactMessage.textContent = 'Có lỗi xảy ra, vui lòng thử lại.❌'
+   })
+  
+}
+
+contactForm.addEventListener('submit', sendEmail)
 /* Show Scroll Up */
 
 
