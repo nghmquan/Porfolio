@@ -43,7 +43,7 @@ const scrollHeader = () =>{
    this.scrollY >= 50 ? header.classList.add('shadow-header') 
                       : header.classList.remove('shadow-header')
 }
-window.addEventListener('scroll', shadowHeader)
+window.addEventListener('scroll', scrollHeader)
 
 /* Contact Email Js */
 const contactForm = document.getElementById('contact-form'),
